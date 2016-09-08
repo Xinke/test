@@ -38,3 +38,16 @@ Array
         )
 
 );*/
+
+function mutateArray($x) {
+    $newX = array();
+    $link = &$newX;
+    for ($i = count($x) - 1; $i >= 0; $i--) { 
+        $link[ $x[$i] ] = false;
+        $link = &$link[ $x[$i] ];
+    }
+    unset($link);
+    return $newX;
+}
+$x = mutateArray($x);
+print_r($x);
